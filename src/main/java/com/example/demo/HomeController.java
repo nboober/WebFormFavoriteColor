@@ -18,20 +18,6 @@ public class HomeController {
         return "questionform";
     }
 
-    @RequestMapping("/survey")
-    public String addingQuestion(Model model){
-        int rand = (int)(Math.ceil(Math.random()*2));
-
-        if(rand == 1){
-            model.addAttribute("myquestion", "What is your favorite color?");
-            return "questionform";
-        }else{
-            model.addAttribute("myquestion", "What is the airspeed velocity of an unladen swallow?");
-            return "questionform";
-        }
-
-    }
-
     @PostMapping("/survey")
     public String processQuestionaire(@Valid Data data, BindingResult result){
         if(result.hasErrors()){

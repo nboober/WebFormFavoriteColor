@@ -6,6 +6,7 @@ import javax.validation.constraints.Size;
 public class Data {
 
     @NotNull
+    @Size(min=1)
     private String name;
 
     @NotNull
@@ -17,6 +18,17 @@ public class Data {
 
 //    @NotNull
     private String speed;
+
+    private int number;
+
+    public int getNumber() {
+        number = (int)(Math.ceil(Math.random()*2));
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
 
     public String getName() {
         return name;

@@ -10,10 +10,21 @@
         What is your name? <input type="text" th:field="*{name}"/>
         <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"/><br/>
 
-        What is your Quest? <textarea rows="4" type="text" th:field="*{quest}"/>
+        What is your Quest? <textarea rows="6" style="width: 286px; height: 146px;" type="text" th:field="*{quest}"/>
         <span th:if="${#fields.hasErrors('quest')}" th:errors="*{quest}"/><br/>
 
-        <p th:text="${myquestion}"></p>
+        <div th:switch="${data.number}">
+            <div th:case="1">
+                What is your favorite color? <input type="text" th:field="*{color}"/>
+                <span th:if="${#fields.hasErrors('color')}" th:errors="*{color}"/><br/>
+            </div>
+
+            <div th:case="2">
+                What is the airspeed velocity of an unladen swallow? <input type="text" th:field="*{speed}"/>
+                <span th:if="${#fields.hasErrors('speed')}" th:errors="*{speed}"/><br/>
+            </div>
+
+        </div>
 
         <input type="submit" value="Answer"/>
     </form>
